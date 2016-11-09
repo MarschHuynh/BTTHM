@@ -76,6 +76,7 @@ public class HandlingString extends Applet implements Runnable,ActionListener{
     public void actionPerformed(ActionEvent evt) {
         String stringInput = stringHandelTextField.getText();
         StringBuilder convert = null ;
+        String resultString;
         char convertChart[]= stringInput.toCharArray();
         if(evt.getSource()==reverseButton){
             resultTextField.setText(new StringBuilder(stringInput).reverse().toString());
@@ -86,20 +87,17 @@ public class HandlingString extends Applet implements Runnable,ActionListener{
         if(evt.getSource()==lowerButton){
             resultTextField.setText(stringInput.toLowerCase());
         }
-        if(evt.getSource()==convertButton)
+        if(evt.getSource()==convertButton){
             for(int i=0;i<stringInput.length();i++){
                 if(convertChart[i]>='A'&& convertChart[i]<='Z'){
-//                    convert.setCharAt(i,stringInput.toLowerCase().charAt(i));
                     convertChart[i]=Character.toLowerCase(convertChart[i]);
                 }
                 else if(convertChart[i]>='a'&&convertChart[i]<='z'){
-//                    convert.setCharAt(i,stringInput.toUpperCase().charAt(i));
                     convertChart[i]=Character.toUpperCase(convertChart[i]);
-
                 }
-//                convert.setCharAt(i,stringInput.charAt(i));
             }
             resultTextField.setText(new String(convertChart));
         
         }
+    }
 }

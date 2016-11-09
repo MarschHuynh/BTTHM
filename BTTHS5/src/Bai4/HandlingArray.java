@@ -71,9 +71,7 @@ public class HandlingArray extends Applet implements Runnable,ActionListener {
         int[] results = new int[arrayString.length];
         for(int i=0,j=0;i<arrayString.length;i++){
             try{
-                if(arrayString[i].length()>0){
                  results[j++]=Integer.parseInt(arrayString[i]);
-                }
             }catch(Exception ex){
             }
         }
@@ -118,6 +116,11 @@ public class HandlingArray extends Applet implements Runnable,ActionListener {
             }catch(Exception ex){
             }
             resultTextField.setText(""+searchNumber(number,arrayNumber));
+        }
+        if(evt.getSource()==sortButton){
+            Arrays.sort(arrayNumber);
+            resultTextField.setText(toString(arrayNumber));
+
         }
         if (evt.getSource()==insertButton){
             int number =0;
